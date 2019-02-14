@@ -67,9 +67,9 @@ void rotate(double check_angle, ros::Publisher pub, Update& u)
 		msg.angular.y = 0;
 		
 		if(u.theta > ang_rad- 0.02)
-			msg.angular.z = 0.5*(u.theta - ang_rad);
+			msg.angular.z = 1.75*(u.theta - ang_rad);
 		else
-			msg.angular.z = 0.5*(ang_rad - u.theta);
+			msg.angular.z = 1.75*(ang_rad - u.theta);
 		pub.publish(msg);			
 	}
 	msg.angular.z = 0;
@@ -97,7 +97,7 @@ void move(double speed, double distance, double linear_distance, bool isForward,
 	{		
 		ros::spinOnce();
 		double value = distance - euclid(initial_x, initial_y , u.x, u.y);
-		msg.linear.x = (0.5) *value;
+		msg.linear.x = (1.75) *value;
 		msg.linear.y = 0;
 		msg.linear.z = 0;
 	
